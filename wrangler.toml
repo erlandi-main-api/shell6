@@ -4,22 +4,12 @@ type = "javascript"
 compatibility_date = "2024-07-09"
 
 [build]
-command = "npm install"
+command = "npm install && npm run build"
+pages_build_output_dir = "dist"
 
-[build.upload]
-format = "service-worker"
-
-[env.production]
-name = "shell6"
-compatibility_date = "2024-07-09"
-route = "*/*"
-
-[env.production.build]
-command = "npm install"
-
-[[build.upload.files]]
-bucket = "dist"
-exclude = ["**/*.map"]
+[site]
+bucket = "./dist"
+entry-point = "."
 
 [vars]
 GITHUB_REPO = "https://github.com/erlandi-main-api/shell6"
